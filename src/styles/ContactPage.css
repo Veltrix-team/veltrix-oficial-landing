@@ -124,11 +124,10 @@ legend {
 }
 
 @media (min-width: 768px) {
-    .form-section {        
-        justify-content: center;
+    .form-section {
+
+        justify-content: space-between;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        align-content: center;
     }
 }
