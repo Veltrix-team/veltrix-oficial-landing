@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Función para actualizar el icono del tema
+    //actualizar el icono del tema
     function updateIcon() {
         const themeIcon = document.getElementById('theme-icon');
         if (themeIcon) {

@@ -19,20 +19,20 @@ import { Icon } from "astro-icon/components";
         <li><a href="#team" class="hover:text-sky-900 dark:hover:text-sky-600" >Nuestro Equipo</a></li>
         <li><a href="#contact" class="hover:text-sky-900 dark:hover:text-sky-600">Contacto</a></li>
 
-        <button id="toggle-theme" class="ml-4 cursor-pointer">
+        <!-- <button id="toggle-theme" class="ml-4 cursor-pointer">
             <img src="/mode_night.svg" alt="mode_night" id="theme-icon" />
-        </button>
+        </button> -->
     </nav>
 
     <!-- Botón de hamburguesa -->
-    <button id="menu-toggle" class="md:hidden">
+    <button id="menu-toggle" class="md:hidden text-sky-950 dark:text-gray-200 cursor-pointer">
         <Icon name="ui/menu" width={30} height={30} />
     </button>
 
     <!-- Menú desplegable  -->
     <nav
         id="mobile-menu"
-        class="hidden absolute top-16 left-0 w-full text-black text-center bg-white/70 backdrop-blur-3xl shadow-lg md:hidden"
+        class="hidden absolute top-16 left-0 w-full text-sky-950 text-center bg-white dark:bg-slate-900 dark:text-gray-200 backdrop-blur-3xl shadow-lg md:hidden"
     >
         <li
             class="py-2 list-none hover:bg-sky-950 hover:text-white cursor-pointer"

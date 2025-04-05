@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle?.addEventListener("click", () => {
         if (menu?.classList.contains('hidden')) {
             menu?.classList.remove('hidden', 'animate__fadeOutUp');
-            menu?.classList.add("animate__animated", "animate__fadeInDown", "animate__faster");
+            menu?.classList.add("", "animate__fadeInDown", "animate__faster");
         } else {
             closeMenu();
         }
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         menu?.classList.remove('animate__fadeInDown');
         menu?.classList.add('animate__fadeOutUp');
 
-        setTimeout(() => {
-            menu?.classList.add('hidden');
-        }, 300);
+
+        menu?.classList.add('hidden');
+
     }
 });

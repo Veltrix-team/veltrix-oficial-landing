@@ -2,18 +2,18 @@
 import Technologies from "../components/Technologies.astro"
 ---
 
-<section class="w-full flex flex-col md:flex-row items-center justify-between">
-    <div class="text-center md:text-left w-full flex flex-col items-center">
-        <h4 class="text-4xl md:text-4xl leading-tight font-bold text-center dark:text-gray-200">
+<section class="w-full flex flex-col md:flex-row items-center justify-between text-center">
+    <div class="w-full flex flex-col items-center">
+        <h4 class="text-4xl md:text-4xl leading-tight font-bold dark:text-gray-200">
             Transforma tus ideas en experiencias con
             <span class="text-sky-950 dark:text-sky-600 font-[Orbitron]">VELTRIX</span>
         </h4>
-        <p class="max-w-lg text-lg md:text-xl text-gray-00 font-medium mt-5 text-center dark:text-gray-400">
+        <p class="max-w-lg text-lg md:text-xl text-gray-00 font-medium mt-5 dark:text-gray-400">
             Desarrollo de software eficiente, seguro y escalable, diseñado para
             optimizar procesos y llevar la innovación digital al siguiente nivel.
         </p>
 
-        <div class="flex flex-col md:flex-row mt-10 gap-3 md:gap-5">
+        <div class="flex flex-col md:flex-row mt-10 gap-3 md:gap-5 w-100">
             <button class="bg-sky-950 hover:bg-sky-900 cursor-pointer p-3 text-white rounded-xl w-full md:w-56 dark:bg-sky-600">
                 Empieza ahora
             </button>
@@ -22,8 +22,8 @@ import Technologies from "../components/Technologies.astro"
             </button>
         </div>
 
-        <section class="mt-5">
-            <p class="mb-3 text-center md:text-left text-gray-400">Las tecnologías que usamos</p>
+        <section class="mt-5 text-center w-full flex flex-col items-center">
+            <p class="mb-3 text-gray-400">Las tecnologías que usamos</p>
             <Technologies />
         </section>
     </div>
