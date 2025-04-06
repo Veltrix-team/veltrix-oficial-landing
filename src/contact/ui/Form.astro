@@ -2,7 +2,6 @@
 import { actions } from "astro:actions";
 
 const result = Astro.getActionResult(actions.send);
-// 👈 esto solo en desarrollo
 
 if (result?.data && typeof result.data === "object" && "success" in result.data) {
   return Astro.redirect("/gracias")
