@@ -1,22 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import "../common/styles/global.css";
+
 import Home from "../home/pages/home.astro";
 import AreYouReady from "../common/views/AreYouReady.astro";
 import About from "../about/pages/about.astro";
 import Team from "../team/pages/team.astro";
 import Contact from "../contact/pages/contact.astro";
 import ToggleThemeBtn from "../common/components/ToggleThemeBtn.astro";
+import Navbar from "../common/ui/Navbar.astro";
+import Footer from "../common/ui/Footer.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Home />
-	<About />
-	<AreYouReady />
-	<Team />
-	<Contact />
-
-	<ToggleThemeBtn/>
+<Layout title="Home | Veltrix">
+	
+		<main class="space-y-20 pt-[80px]">
+			<Navbar />
+			<Home />
+			<About />
+			<AreYouReady />
+			<Team />
+			<Contact />
+			
+			<Footer />
+		</main>
+		
 </Layout>
+
+
+<style>
+	body {
+		padding-top: 50px;
+	}
+</style>

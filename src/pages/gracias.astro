@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Gracias por tu mensaje | VELTRIX">
+  <main
+    class="min-h-[80vh] flex flex-col justify-center items-center text-center px-6 py-12"
+  >
+    <section
+      class="bg-gray-100 dark:bg-slate-800 rounded-3xl shadow-2xl p-10 max-w-xl w-full animate__animated animate__fadeIn"
+    >
+      <div class="flex justify-center mb-6">
+        <Icon
+          name="logo"
+          width="200"
+          height="100"
+          class="text-sky-900 dark:text-sky-400"
+        />
+      </div>
+
+      <h1 class="text-4xl font-extrabold text-sky-900 dark:text-sky-400 mb-4">
+        ¡Gracias por tu mensaje!
+      </h1>
+
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+        Nos pondremos en contacto contigo lo antes posible.<br />
+        Mientras tanto, síguenos en nuestras redes o vuelve al inicio.
+      </p>
+
+      <div class="flex justify-center gap-4 mb-6">
+        <a
+          href="/"
+          class="px-5 py-2 bg-sky-900 hover:bg-sky-700 text-white rounded-xl font-semibold transition-colors"
+        >
+          Volver al inicio
+        </a>
+     
+      </div>
+
+      <div class="flex justify-center gap-6 text-sky-600 dark:text-sky-400 text-2xl">
+        <a href="https://instagram.com/veltrix.team" target="_blank" aria-label="Instagram">
+          <Icon name="social/instagram" width="28" height="28" class="hover:text-sky-400 text-sky-900 dark:text-sky-600" />
+        </a>
+        <a href="https://github.com/Veltrix-team" target="_blank" aria-label="GitHub">
+          <Icon name="social/github" width="28" height="28" class="hover:text-sky-400 text-sky-900 dark:text-sky-600" />
+        </a>
+      </div>
+
+      <p class="text-xs text-gray-400 mt-6">
+        &copy; {new Date().getFullYear()} <span class="font-[Orbitron]">VELTRIX</span>. Todos los derechos reservados.
+      </p>
+    </section>
+  </main>
+</Layout>

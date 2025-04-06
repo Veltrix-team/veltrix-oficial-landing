@@ -6,13 +6,15 @@ interface Props {
     name: string;
     title: string;
     description: string;
+    github:string;
+    instagram?:string;
 }
 
-const { userImage, name, title, description } = Astro.props;
+const { userImage, name, title, description, github, instagram } = Astro.props;
 ---
 
 <article
-    class="bg-gray-100 w-100 flex flex-col items-center text-center shadow-xl p-6 rounded-lg transition-transform duration-300 hover:translate-y-[-0.5rem] hover:shadow-2xl dark:bg-slate-800"
+    class="bg-gray-100 w-100 flex flex-col items-center text-center shadow-xl p-6 rounded-lg transition-transform duration-300 hover:shadow-2xl dark:bg-slate-800"
 >
     <div class="w-25 h-25 rounded-full overflow-hidden shadow-lg">
         <img src={userImage} alt={name} class="object-cover w-full h-full" />
@@ -26,8 +28,15 @@ const { userImage, name, title, description } = Astro.props;
 
     
     <div class="flex gap-4 mt-4 text-sky-950 dark:text-sky-600">
-        <Icon name="social/instagram" width={25} height={25} class="fill-current" />
-        <Icon name="social/linkedin" width={25} height={25} class="fill-current" />
-        <Icon name="social/github" width={25} height={25} class="fill-current" />
+        
+        <a href={instagram} class="hover:text-sky-600 transition-colors" target="_blank">
+            <Icon name="social/instagram" width={25} height={25} class="fill-current" />
+        </a>
+      
+        <a href={github} class="hover:text-sky-600 transition-colors" target="_blank">
+            <Icon name="social/github" width={25} height={25} class="fill-current" />
+        </a>
+       
+        <!-- <Icon name="social/linkedin" width={25} height={25} class="fill-current" /> -->
     </div>
 </article>

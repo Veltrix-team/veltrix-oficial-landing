@@ -3,26 +3,33 @@ import ProfileCard from "../components/ProfileCard.astro";
 ---
 
 <section class="text-center px-6 md:px-10 flex flex-col items-center" id="team">
-    <h2 class="text-4xl text-sky-900 font-bold dark:text-sky-600">Conoce a nuestro equipo</h2>
+    <h2 class="text-4xl text-sky-900 font-bold dark:text-sky-600">
+        Conoce a nuestro equipo
+    </h2>
     <p class="text-lg max-w-screen-md text-gray-500 dark:text-gray-300">
-        En Veltrix, somos un equipo de desarrolladores apasionados por la tecnología, creando soluciones digitales eficientes, escalables y de alto rendimiento. Combinamos experiencia y excelencia para llevar cada proyecto al siguiente nivel.
+        En Veltrix, somos un equipo de desarrolladores apasionados por la
+        tecnología, creando soluciones digitales eficientes, escalables y de
+        alto rendimiento. Combinamos experiencia y excelencia para llevar cada
+        proyecto al siguiente nivel.
     </p>
 
     <div class="flex flex-wrap justify-center gap-6 mt-10 w-full">
         <ProfileCard
+            github="https://github.com/SebasDev807"
+            instagram="https://www.instagram.com/sebastian_ordonez807"
             userImage="/sebastian.jpg"
             name="Juan Sebastián Astudillo"
             title="Co-fundador & Fullstack Developer"
             description="Desarrollador full-stack apasionado por la optimización y la arquitectura backend. Siempre en busca de mejorar el rendimiento del software."
-     
         />
 
         <ProfileCard
+            github="https://github.com/KevinKing66"
+            instagram="https://www.instagram.com/kevin.caicedo.313371"
             userImage="/kevin.jpg"
             name="Kevin Caicedo"
             title="Co-Fundador & Senior Developer"
             description="Arquitecto de software con experiencia en sistemas escalables y de alto rendimiento enfocado en crear soluciones robustas y eficientes."
-           
         />
     </div>
 </section>

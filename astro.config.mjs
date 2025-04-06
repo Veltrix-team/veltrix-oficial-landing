@@ -3,9 +3,17 @@ import tailwindcss from "@tailwindcss/vite";
 
 import icon from "astro-icon";
 
+import vercel from "@astrojs/vercel";
+
+import react from "@astrojs/react";
+
 export default defineConfig({
-  integrations: [icon()],
+  output: 'server',
+  integrations: [icon(), react()],
+
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+
+  adapter: vercel()
 });

@@ -1,170 +1,67 @@
 ---
-import { isValidEmail } from "../utils/isValidEmail";
-import ErrorMessage from "../components/ErrorMessage.astro";
+import { actions } from "astro:actions";
+
+const result = Astro.getActionResult(actions.send);
+// 👈 esto solo en desarrollo
+
+if (result?.data && typeof result.data === "object" && "success" in result.data) {
+  return Astro.redirect("/gracias")
+};
+
 ---
 
 <form
-    method="POST"
-    class="shadow-lg p-8 space-y-6 max-w-lg bg-white rounded-lg dark:bg-slate-800"
+  class="shadow-lg p-8 space-y-6 max-w-lg bg-white rounded-lg dark:bg-slate-800 text-gray-500"
+  method="post"
+  action={actions.send}
+  id="contact-form"
 >
-    <legend class="text-xl font-bold text-gray-800 mb-4 dark:text-white"
-        >Estoy interesado en</legend
-    >
+  <legend class="text-xl font-bold text-gray-800 mb-4 dark:text-white">
+    Estoy interesado en
+  </legend>
 
-    <div class="flex flex-wrap gap-3">
-        <button
-            class="border border-sky-900 px-4 py-2 rounded-full text-sky-900 hover:bg-sky-900 hover:text-white transition-all duration-200 dark:border-sky-600 dark:text-sky-600 dark:hover:bg-sky-600 dark:hover:text-white"
-        >
-            UI/UX Design
-        </button>
+  <!-- Hidden subject field -->
+  <input type="hidden" name="subject" id="subject-field" />
 
-        <button
-            class="border border-sky-900 px-4 py-2 rounded-full text-sky-900 hover:bg-sky-900 hover:text-white transition-all duration-200 dark:border-sky-600 dark:text-sky-600 dark:hover:bg-sky-600 dark:hover:text-white"
-        >
-            Desarrollo móvil
-        </button>
+  <div class="flex flex-wrap gap-3" id="subject-buttons">
+    {["UI/UX Design", "Desarrollo móvil", "Sistemas CRM", "Optimización", "Otros"].map(subject => (
+      <button
+        type="button"
+        class="subject-btn border border-sky-900 px-4 py-2 rounded-full text-sky-900 hover:bg-sky-900 hover:text-white transition-all duration-200 dark:border-sky-600 dark:text-sky-600 dark:hover:bg-sky-600 dark:hover:text-white cursor-pointer"
+        data-value={subject}
+      >
+        {subject}
+      </button>
+    ))}
+  </div>
 
-        <button
-            class="border border-sky-900 px-4 py-2 rounded-full text-sky-900 hover:bg-sky-900 hover:text-white transition-all duration-200 dark:border-sky-600 dark:text-sky-600 dark:hover:bg-sky-600 dark:hover:text-white"
-        >
-            Sistemas CRM
-        </button>
+  <!-- Resto del formulario -->
+  <!-- Nombre -->
+  <div class="grid gap-2">
+    <label for="name" class="font-semibold text-gray-700 dark:text-gray-300">Nombre</label>
+    <input type="text" id="name" name="name" placeholder="Jhon Smith" class="border-b border-gray-400 px-2 py-2 focus:border-sky-500 outline-none transition-all duration-200 dark:border-b-sky-600 dark:focus:border-sky-400 dark:placeholder:text-slate-600" />
+  </div>
 
-        <button
-            class="border border-sky-900 px-4 py-2 rounded-full text-sky-900 hover:bg-sky-900 hover:text-white transition-all duration-200 dark:border-sky-600 dark:text-sky-600 dark:hover:bg-sky-600 dark:hover:text-white"
-        >
-            Optimización
-        </button>
+  <!-- Email -->
+  <div class="grid gap-2">
+    <label for="email" class="font-semibold text-gray-700 dark:text-gray-300">Email</label>
+    <input type="email" id="email" name="email" placeholder="example@gmail.com" class="border-b border-gray-400 px-2 py-2 focus:border-sky-500 outline-none transition-all duration-200 dark:border-b-sky-600 dark:focus:border-sky-400 dark:placeholder:text-slate-600" />
+  </div>
 
-        <button
-            class="border border-sky-900 px-4 py-2 rounded-full text-sky-900 hover:bg-sky-900 hover:text-white transition-all duration-200 dark:border-sky-600 dark:text-sky-600 dark:hover:bg-sky-600 dark:hover:text-white"
-        >
-            Otros
-        </button>
-    </div>
+  <!-- Mensaje -->
+  <div class="grid gap-2">
+    <label for="message" class="font-semibold text-gray-700 dark:text-gray-300">Mensaje</label>
+    <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." class="border-b border-gray-400 px-2 py-2 focus:border-sky-500 outline-none transition-all duration-200 resize-none h-24 dark:border-b-sky-600 dark:focus:border-sky-400 dark:placeholder:text-slate-600"></textarea>
+  </div>
 
-    <div class="grid gap-2">
-        <label for="name" class="font-semibold text-gray-700 dark:text-gray-300"
-            >Nombre</label
-        >
-        <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Jhon Smith"
-            class="border-b border-gray-400 px-2 py-2 focus:border-sky-500 outline-none transition-all duration-200 dark:border-b-sky-600 dark:focus:border-sky-400 dark:placeholder:text-slate-600"
-        />
-
-        
-    </div>
-
-    <div class="grid gap-2">
-        <label
-            for="email"
-            class="font-semibold text-gray-700 dark:text-gray-300">Email</label
-        >
-        <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@gmail.com"
-            class="border-b border-gray-400 px-2 py-2 focus:border-sky-500 outline-none transition-all duration-200 dark:border-b-sky-600 dark:focus:border-sky-400 dark:placeholder:text-slate-600"
-        />
-    </div>
-
-    <div class="grid gap-2">
-        <label
-            for="message"
-            class="font-semibold text-gray-700 dark:text-gray-300"
-            >Mensaje</label
-        >
-        <textarea
-            id="message"
-            name="message"
-            placeholder="Escribe tu mensaje aquí..."
-            class="border-b border-gray-400 px-2 py-2 focus:border-sky-500 outline-none transition-all duration-200 resize-none h-24 dark:border-b-sky-600 dark:focus:border-sky-400 dark:placeholder:text-slate-600"
-        ></textarea>
-    </div>
-
-    <input
-        type="submit"
-        value="Enviar Mensaje"
-        class="w-full bg-sky-900 text-white py-2 rounded-lg font-semibold hover:bg-sky-800 transition-all duration-200 cursor-pointer dark:bg-sky-600 dark:hover:bg-sky-500 dark:text-white"
-    />
+  <input
+    type="submit"
+    value="Enviar Mensaje"
+    class="w-full bg-sky-900 text-white py-2 rounded-lg font-semibold hover:bg-sky-800 transition-all duration-200 cursor-pointer dark:bg-sky-600 dark:hover:bg-sky-500 dark:text-white"
+  />
 </form>
 
-<script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.querySelector('form');
-      
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Limpiar errores anteriores
-        document.querySelectorAll('.error-message').forEach(el => el.remove());
-        
-        const formData = new FormData(form);
-        const errors = {
-          name: '',
-          email: '',
-          message: ''
-        };
-        
-        // Validación
-        const name = formData.get('name')?.toString() || '';
-        const email = formData.get('email')?.toString() || '';
-        const message = formData.get('message')?.toString() || '';
-        
-        if (!name) errors.name = 'El nombre es obligatorio';
-        if (!email || isValidEmail(email)) errors.email = 'El email no es válido';
-        if (!message) errors.message = 'El mensaje es obligatorio';
-        
-        // Mostrar errores
-        let hasErrors = false;
-        
-        for (const [field, error] of Object.entries(errors)) {
-          if (error) {
-            hasErrors = true;
-            const input = form.querySelector(`[name="${field}"]`);
-            const errorElement = document.createElement('p');
-            errorElement.className = 'error-message text-red-500 text-sm mt-1';
-            errorElement.textContent = error;
-            input.insertAdjacentElement('afterend', errorElement);
-            
-            // Añadir clase de error al input
-            input.classList.add('border-red-500');
-          }
-        }
-        
-        if (!hasErrors) {
-          try {
-            // Enviar formulario
-            const response = await fetch(Astro.url.pathname, {
-              method: 'POST',
-              body: formData
-            });
-            
-            if (response.ok) {
-              // Mostrar mensaje de éxito o redirigir
-              alert('Mensaje enviado con éxito');
-              form.reset();
-            }
-          } catch (error) {
-            console.error('Error:', error);
-            alert('Hubo un error al enviar el mensaje');
-          }
-        }
-      });
-      
-      // Limpiar errores al escribir
-      form.querySelectorAll('input, textarea').forEach(input => {
-        input.addEventListener('input', () => {
-          const errorElement = input.nextElementSibling;
-          if (errorElement && errorElement.classList.contains('error-message')) {
-            errorElement.remove();
-            input.classList.remove('border-red-500');
-          }
-        });
-      });
-    });
-    </script>
+
+<script  src="../utils/subjectButtons.ts"></script>
+<script src="../utils/validateForm.ts"></script>
+

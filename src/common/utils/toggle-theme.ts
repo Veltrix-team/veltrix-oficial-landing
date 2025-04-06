@@ -2,33 +2,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('toggle-theme');
     const html = document.documentElement;
 
-    // Verificar la preferencia de tema almacenada
+    // Detectar preferencia guardada o del sistema
     const storedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     if (storedTheme) {
         html.classList.add(storedTheme);
-        updateIcon();
-    } else {
-        // Si no hay una preferencia almacenada, ocultar el botón
-        if (toggleButton) {
-            toggleButton.style.display = 'none';
-        }
+    } else if (prefersDark) {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
     }
+
+    updateIcon();
 
     // Alternar el tema al hacer clic en el botón
-    if (toggleButton) {
-        toggleButton.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', currentTheme);
-            updateIcon();
-        });
-    }
+    toggleButton?.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
+        updateIcon();
+    });
 
-    //actualizar el icono del tema
+    // Cambiar el icono de tema según el modo actual
     function updateIcon() {
         const themeIcon = document.getElementById('theme-icon');
-        if (themeIcon) {
-            themeIcon.setAttribute('src', html.classList.contains('dark') ? '/mode_light.svg' : '/mode_night.svg');
-        }
+        if (!themeIcon) return;
+
+        const isDark = html.classList.contains('dark');
+        themeIcon.setAttribute('src', isDark ? '/mode_light.svg' : '/mode_night.svg');
+        themeIcon.setAttribute('alt', isDark ? 'Cambiar a claro' : 'Cambiar a oscuro');
     }
 });

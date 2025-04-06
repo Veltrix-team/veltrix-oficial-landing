@@ -1,6 +1,8 @@
 ---
-import Footer from "../common/ui/Footer.astro";
-import Navbar from "../common/ui/Navbar.astro";
+import ToggleThemeBtn from "../common/components/ToggleThemeBtn.astro";
+import "../common/styles/global.css";
+
+const {title} = Astro.props;
 ---
 
 <!doctype html>
@@ -10,26 +12,15 @@ import Navbar from "../common/ui/Navbar.astro";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" href="/favicon.svg" type="image/x-icon">
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 		/>
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
-	<body class="font-[Inter] bg-white dark:bg-slate-900">
-		<Navbar />
-		<main class="space-y-20 pt-[80px]">
-			<slot />
-		</main>
-		<Footer/>
-	
+	<body class="font-[Inter] bg-white dark:bg-slate-900 transition-colors">
+		<slot />
 	</body>
-
+	<ToggleThemeBtn/>
 </html>
-<style>
-	body {
-		padding-top: 50px;
-	
-	}
-</style>
-

@@ -1,6 +1,6 @@
 ---
 // You might want to add these social icons to your imports if needed
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 ---
 
 <footer class="bg-sky-950 text-white">
@@ -8,18 +8,42 @@ import { Icon } from 'astro-icon/components';
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <!-- Quick Links -->
             <div class="lg:col-span-1">
-                <h4 class="text-lg font-bold mb-4 border-b border-sky-800 pb-2">ENLACES RÁPIDOS</h4>
+                <h4 class="text-lg font-bold mb-4 border-b border-sky-800 pb-2">
+                    ENLACES RÁPIDOS
+                </h4>
                 <ul class="space-y-3">
-                    <li><a href="#home" class="hover:text-sky-600 transition-colors">Home</a></li>
-                    <li><a href="#about" class="hover:text-sky-600 transition-colors">About</a></li>
-                    <li><a href="#team" class="hover:text-sky-600 transition-colors">Team</a></li>
-                    <li><a href="#contact" class="hover:text-sky-600 transition-colors">Contact</a></li>
+                    <li>
+                        <a
+                            href="#home"
+                            class="hover:text-sky-600 transition-colors"
+                            >Home</a>
+                    </li>
+                    <li>
+                        <a
+                            href="#about"
+                            class="hover:text-sky-600 transition-colors"
+                            >About</a>
+                    </li>
+                    <li>
+                        <a
+                            href="#team"
+                            class="hover:text-sky-600 transition-colors"
+                            >Team</a>
+                    </li>
+                    <li>
+                        <a
+                            href="#contact"
+                            class="hover:text-sky-600 transition-colors"
+                            >Contact</a>
+                    </li>
                 </ul>
             </div>
 
             <!-- Location -->
             <div class="lg:col-span-1">
-                <h4 class="text-lg font-bold mb-4 border-b border-sky-800 pb-2">UBICACIÓN</h4>
+                <h4 class="text-lg font-bold mb-4 border-b border-sky-800 pb-2">
+                    UBICACIÓN
+                </h4>
                 <p class="flex items-start">
                     <Icon name="contact/home" class="mr-2 mt-1" />
                     <span>Popayán - Cauca - Colombia</span>
@@ -27,14 +51,24 @@ import { Icon } from 'astro-icon/components';
             </div>
 
             <!-- Logo - Centered on mobile, moved to middle on desktop -->
-            <div class="md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center order-first md:order-none">
-                <h2 class="font-[Orbitron] text-2xl md:text-3xl text-center mb-4">VELTRIX</h2>
-                <p class="text-sm text-sky-300 text-center">Innovación y tecnología a tu alcance</p>
+            <div
+                class="md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center order-first md:order-none"
+            >
+                <h2
+                    class="font-[Orbitron] text-2xl md:text-3xl text-center mb-4"
+                >
+                    VELTRIX
+                </h2>
+                <p class="text-sm text-sky-300 text-center">
+                    Innovación y tecnología a tu alcance
+                </p>
             </div>
 
             <!-- Contact -->
             <div class="lg:col-span-1">
-                <h4 class="text-lg font-bold mb-4 border-b border-sky-800 pb-2">CONTACTO</h4>
+                <h4 class="text-lg font-bold mb-4 border-b border-sky-800 pb-2">
+                    CONTACTO
+                </h4>
                 <ul class="space-y-3">
                     <li class="flex items-start">
                         <Icon name="contact/phone" class="mr-2 mt-1" />
@@ -42,30 +76,44 @@ import { Icon } from 'astro-icon/components';
                     </li>
                     <li class="flex items-start">
                         <Icon name="contact/email" class="mr-2 mt-1" />
-                        <span>veltrix_dev@gmail.com</span>
+                        <span>hello.veltrix@gmail.com</span>
                     </li>
                 </ul>
             </div>
 
             <!-- Social Media -->
             <div class="lg:col-span-1">
-                <h4 class="text-lg font-bold mb-4 border-b border-sky-800 pb-2">SÍGUENOS</h4>
+                <h4 class="text-lg font-bold mb-4 border-b border-sky-800 pb-2">
+                    SÍGUENOS
+                </h4>
                 <div class="flex space-x-4">
-                    <a href="#" class="hover:text-sky-600 transition-colors" aria-label="Instagram">
+                    <a
+                    target="_blank"
+                        href="https://www.instagram.com/veltrix.team/"
+                        class="hover:text-sky-600 transition-colors"
+                        aria-label="Instagram"
+                    >
                         <Icon name="social/instagram" class="text-2xl" />
                     </a>
-                    <a href="#" class="hover:text-sky-600 transition-colors" aria-label="GitHub">
+                    <a
+                        target="_blank"
+                        href="https://github.com/Veltrix-team"
+                        class="hover:text-sky-600 transition-colors"
+                        aria-label="GitHub"
+                    >
                         <Icon name="social/github" class="text-2xl" />
                     </a>
-                    <a href="#" class="hover:text-sky-600 transition-colors" aria-label="Facebook">
+                    <!-- <a href="#" class="hover:text-sky-600 transition-colors" aria-label="Facebook">
                         <Icon name="social/linkedin" class="text-2xl" />
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
 
         <!-- Copyright -->
-        <div class="border-t border-sky-800 mt-8 pt-6 text-center text-sm text-sky-300">
+        <div
+            class="border-t border-sky-800 mt-8 pt-6 text-center text-sm text-sky-300"
+        >
             <p>&copy; 2025 VELTRIX. Todos los derechos reservados.</p>
         </div>
     </div>
